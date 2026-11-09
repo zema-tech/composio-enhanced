@@ -1,0 +1,4 @@
+.shared-memory.json
+*.lock
+*.tmp
+node_modules/
