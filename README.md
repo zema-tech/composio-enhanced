@@ -107,6 +107,23 @@ Questo repo non risolve i bug backend, ma fornisce workaround e pattern più rob
 
 ---
 
+## Novità: delega a Groq/OpenRouter e memoria condivisa
+
+Due funzioni pensate per agenti diversi (Claude, Grok, Codex, Cursor…) che lavorano con gli stessi strumenti:
+
+1. **Delega LLM con la tua chiave** (`helpers/ts/llm-delegate.ts`): un agente può passare i sotto-compiti veloci a Groq o
+   OpenRouter usando la tua chiave API, con budget per agente, whitelist di modelli e chiave mai esposta.
+   Guida: [`docs-it/delegare-a-groq-openrouter.md`](docs-it/delegare-a-groq-openrouter.md)
+2. **Memoria condivisa / second brain** (`helpers/ts/shared-memory.ts`): spazi (`personal`, `project:*`, `team:*`),
+   provenienza per agente, quarantena dei contenuti esterni contro la prompt injection, rifiuto dei segreti, file condivisibile.
+   Guida: [`docs-it/memoria-condivisa.md`](docs-it/memoria-condivisa.md)
+3. **Server MCP** (`examples/shared-memory-mcp/`) che espone memoria e delega a qualsiasi client MCP con trasporto stdio.
+
+Tool pronti per qualsiasi framework in `helpers/ts/agent-tools.ts`. Test: `npm test` (Node >= 22.18, nessuna dipendenza).
+Queste funzioni sono livelli lato client accanto a Composio, **non** modifiche al suo backend.
+
+---
+
 ## Struttura del repo
 
 ```text

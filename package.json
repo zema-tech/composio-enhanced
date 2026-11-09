@@ -1,0 +1,12 @@
+{
+  "name": "composio-enhanced",
+  "private": true,
+  "type": "module",
+  "description": "Helper, esempi e documentazione in italiano per Composio: delega a Groq/OpenRouter e memoria condivisa per agenti",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.ts\"",
+    "mcp": "node examples/shared-memory-mcp/server.ts"
+  },
+  "license": "MIT"
+}
